@@ -40,6 +40,8 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation "org.jetbrains.kotlinx:multik-core:0.2.3"
+    implementation "org.jetbrains.kotlinx:multik-default:0.2.3"
 }
 
 test {
