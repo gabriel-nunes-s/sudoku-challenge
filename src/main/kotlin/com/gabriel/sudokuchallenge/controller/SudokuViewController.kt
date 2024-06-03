@@ -1,9 +1,8 @@
 package com.gabriel.sudokuchallenge.controller
 
-class SudokuViewController {
+import com.gabriel.sudokuchallenge.model.Solver
 
-    //cria uma matriz de tamanho 9x9 prenchida com zeros
-    private var sudokuArray = Array(9) {IntArray(9)}
+class SudokuViewController {
 
     val sudoku = arrayOf(
         intArrayOf(5, 3, 0, 0, 7, 0, 0, 0, 0),
@@ -17,9 +16,9 @@ class SudokuViewController {
         intArrayOf(0, 0, 0, 0, 8, 0, 0, 7, 9)
     )
 
-    fun showMatrix() {
-        println(sudokuArray[0][0])
+    init {
+        var solver = Solver()
+        solver.solve()
     }
-
 
 }

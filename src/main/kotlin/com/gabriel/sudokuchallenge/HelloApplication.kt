@@ -14,8 +14,7 @@ class HelloApplication : Application() {
         stage.scene = scene
         stage.show()
 
-        val controller = SudokuViewController()
-        controller.showMatrix()
+        var controller = SudokuViewController()
     }
 }
 
