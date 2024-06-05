@@ -17,7 +17,7 @@ class SudokuViewController {
     )
 
     init {
-        var solver = Solver()
+        var solver = Solver(sudoku)
         solver.solve()
     }
 
