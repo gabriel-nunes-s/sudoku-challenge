@@ -1,58 +1,58 @@
 package com.gabriel.sudokuchallenge.model
 
-class Solver(matrix: Array<IntArray>) {
+class Solver() {
 
-    private var sudokuGrid: Array<IntArray>
-
-    init {
-        sudokuGrid = matrix
-    }
-
-    // --- funções de verificação ---
-    fun isInTheRow(row: Int, number: Int): Boolean {
-        //percorre toda a linha
+    private fun validPosition(sudokuGrid: Array<IntArray>, row: Int, column: Int, number: Int): Boolean {
+        //valida as posições na linha
         for (i in 0..8) {
-            if (sudokuGrid[row][i] == number) return true
+            if (sudokuGrid[row][i] == number) return false
         }
-        return false
-    }
 
-    fun isInTheColumn(column: Int, number: Int): Boolean {
-        //percorre toda a coluna
+        //valida as posições na coluna
         for (i in 0..8) {
-            if (sudokuGrid[column][i] == number) return true
+            if (sudokuGrid[column][i] == number) return false
         }
-        return false
-    }
 
-    fun isInTheBlock(x: Int, y: Int, number: Int): Boolean {
-        //mapeia as coordenadas do bloco 3x3
-        val blockStartPositionX: Int = (x % 3)
-        val blockFinalPositionX = blockStartPositionX + 2
-        val blockStartPositionY: Int = (y % 3)
-        val blockFinalPositionY = blockStartPositionY + 2
+        //mapeamento do bloco 3x3
+        val blockStartPositionX: Int = row - (row % 3)
+        val blockStartPositionY: Int = column - (column % 3)
 
-        for (i in blockStartPositionX..blockFinalPositionX) { //range x
-            for (j in blockStartPositionY..blockFinalPositionY) { //range y
-                if (sudokuGrid[i][j] == number) return true
+        //valida as posições no bloco
+        for (i in blockStartPositionX until blockStartPositionX + 3) { //range x
+            for (j in blockStartPositionY until blockStartPositionY + 3) { //range y
+                if (sudokuGrid[i][j] == number) return false
             }
         }
-        return false
+
+        return true
     }
 
-    fun solve(): Array<IntArray> {
+    fun solve(sudoku: Array<IntArray>): Array<IntArray> {
+
+        var solvedSudoku = sudoku
+
         // percorre  toda a matriz
         for (row in 0..8) { //percorre as linhas da matriz
-            for (collumn in 0..8) { //percorre as colunas da matriz
-                for (number in 1..9) { //testa na posição [] números de 1 a 9
-                    if (sudokuGrid[row][collumn] == 0 && !isInTheRow(row, number) && (!isInTheColumn(collumn, number) && (isInTheBlock(row, collumn, number)))) {
-                        sudokuGrid[row][collumn] = number
+            for (column in 0..8) { //percorre as colunas da matriz
+                if (solvedSudoku[row][column] == 0) {
+                    for (number in 1..9) {
+                        if (validPosition(sudoku, row, column, number)) {
+                            solvedSudoku[row][column] = number
+                            return solve(solvedSudoku)
+                            solvedSudoku[row][column] = 0
+                        }
                     }
                 }
             }
         }
 
-        return sudokuGrid
-    }
+        for (i in 0..8) {
+            print("\n")
+            for (j in 0..8) {
+                print("${sudoku[i][j]} ")
+            }
+        }
 
+        return solvedSudoku
+    }
 }
