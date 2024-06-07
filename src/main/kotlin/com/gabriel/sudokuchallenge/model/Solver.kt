@@ -2,6 +2,9 @@ package com.gabriel.sudokuchallenge.model
 
 class Solver() {
 
+    //armazena a matriz resolvida
+    public var grid: Array<IntArray> = Array(9) { IntArray(9) }
+
     private fun validPosition(sudokuGrid: Array<IntArray>, row: Int, column: Int, number: Int): Boolean {
         //valida as posições na linha
         for (i in 0..8) {
@@ -10,7 +13,7 @@ class Solver() {
 
         //valida as posições na coluna
         for (i in 0..8) {
-            if (sudokuGrid[column][i] == number) return false
+            if (sudokuGrid[i][column] == number) return false
         }
 
         //mapeamento do bloco 3x3
@@ -27,32 +30,28 @@ class Solver() {
         return true
     }
 
-    fun solve(sudoku: Array<IntArray>): Array<IntArray> {
-
+    fun solve(sudoku: Array<IntArray>): Boolean {
         var solvedSudoku = sudoku
 
         // percorre  toda a matriz
         for (row in 0..8) { //percorre as linhas da matriz
             for (column in 0..8) { //percorre as colunas da matriz
-                if (solvedSudoku[row][column] == 0) {
-                    for (number in 1..9) {
-                        if (validPosition(sudoku, row, column, number)) {
+                if (solvedSudoku[row][column] == 0) {//verifica se a posição é vazia
+                    for (number in 1..9) {//testa números de 1 a 9 na posição
+                        if (validPosition(solvedSudoku, row, column, number)) {
                             solvedSudoku[row][column] = number
-                            return solve(solvedSudoku)
-                            solvedSudoku[row][column] = 0
+                            if (solve(solvedSudoku)) {
+                                grid = solvedSudoku
+                                return true
+                            }
+                            sudoku[row][column] = 0
                         }
                     }
+                    return false
                 }
             }
         }
 
-        for (i in 0..8) {
-            print("\n")
-            for (j in 0..8) {
-                print("${sudoku[i][j]} ")
-            }
-        }
-
-        return solvedSudoku
+        return true
     }
 }
