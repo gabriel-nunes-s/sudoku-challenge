@@ -3,7 +3,7 @@ package com.gabriel.sudokuchallenge.model
 class Solver() {
 
     //armazena a matriz resolvida
-    public var grid: Array<IntArray> = Array(9) { IntArray(9) }
+    var solvedGrid: Array<IntArray> = Array(9) { IntArray(9) }
 
     private fun validPosition(sudokuGrid: Array<IntArray>, row: Int, column: Int, number: Int): Boolean {
         //valida as posições na linha
@@ -41,7 +41,7 @@ class Solver() {
                         if (validPosition(solvedSudoku, row, column, number)) {
                             solvedSudoku[row][column] = number
                             if (solve(solvedSudoku)) {
-                                grid = solvedSudoku
+                                solvedGrid = solvedSudoku
                                 return true
                             }
                             sudoku[row][column] = 0

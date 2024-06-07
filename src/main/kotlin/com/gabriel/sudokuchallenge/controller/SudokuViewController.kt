@@ -2,40 +2,63 @@ package com.gabriel.sudokuchallenge.controller
 
 import com.gabriel.sudokuchallenge.model.Solver
 import javafx.fxml.FXML
+import javafx.scene.control.Button
+import javafx.scene.control.Label
+import javafx.scene.layout.GridPane
 
 class SudokuViewController {
 
-    val sudoku = arrayOf(
-        intArrayOf(5, 3, 0, 0, 7, 0, 0, 0, 0),
-        intArrayOf(6, 0, 0, 1, 9, 5, 0, 0, 0),
-        intArrayOf(0, 9, 8, 0, 0, 0, 0, 6, 0),
-        intArrayOf(8, 0, 0, 0, 6, 0, 0, 0, 3),
-        intArrayOf(4, 0, 0, 8, 0, 3, 0, 0, 1),
-        intArrayOf(7, 0, 0, 0, 2, 0, 0, 0, 6),
-        intArrayOf(0, 6, 0, 0, 0, 0, 2, 8, 0),
-        intArrayOf(0, 0, 0, 4, 1, 9, 0, 0, 5),
-        intArrayOf(0, 0, 0, 0, 8, 0, 0, 7, 9)
-    )
+    @FXML
+    private lateinit var gridPane: GridPane
 
-    init {
-        var solver = Solver()
-        solver.solve(sudoku)
+    @FXML
+    private lateinit var btnSolve: Button
 
-        for (i in 0..8) {
-            print("\n")
-            for (j in 0..8) {
-                print("${solver.grid[i][j]} ")
+    @FXML
+    private lateinit var btnChangeMatrix: Button
+
+    private var sudokuGrid: Array<IntArray> = Array(9) { IntArray(9) }
+
+    @Override
+    fun initialize() {
+        val children = gridPane.children
+
+        //seta os valores do gridPane para a array
+        for (node in children) {
+            //pega as coordenadas do node em questão
+            val row = GridPane.getRowIndex(node) ?: 0
+            val col = GridPane.getColumnIndex(node) ?: 0
+
+            if (node is Label) {
+                val text = node.text
+                sudokuGrid[row][col] = if (text.isEmpty()) 0 else text.toInt()
+            }
+        }
+    }
+
+    private fun setSolvedGrid(grid: Array<IntArray>) {
+        val children = gridPane.children
+
+        for (node in children) {
+            val row = GridPane.getRowIndex(node) ?: 0
+            val col = GridPane.getColumnIndex(node) ?: 0
+
+            if (node is Label) {
+                node.text = sudokuGrid[row][col].toString()
             }
         }
     }
 
     @FXML
-    fun onSolveButtonClick() {
-        TODO("not implemented yet")
+    fun onBtnSolveClick() {
+        val solver = Solver() //instancia um novo Solver()
+        solver.solve(sudokuGrid) //resolve o sudoku
+        sudokuGrid = solver.solvedGrid //armazena o valor do sudoku resolvido
+        setSolvedGrid(sudokuGrid) // seta os valores do array resolvido para o gridPane
     }
 
     @FXML
-    fun onChangeMatrixButtonClick() {
+    fun onBtnChangeMatrixClick() {
         TODO("not implemented yet")
     }
 }

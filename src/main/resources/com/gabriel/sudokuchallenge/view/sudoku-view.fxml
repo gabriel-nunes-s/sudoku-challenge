@@ -2,17 +2,126 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="263.0" layoutY="317.0" mnemonicParsing="false" text="Solve Sudoku Puzzle!">
+      <Button fx:id="btnSolve" layoutX="263.0" layoutY="343.0" mnemonicParsing="false" onAction="#onBtnSolveClick" text="Solve Sudoku Puzzle!">
          <padding>
             <Insets bottom="6.0" left="4.0" right="4.0" top="6.0" />
          </padding>
       </Button>
-      <Button layoutX="253.0" layoutY="362.0" mnemonicParsing="false" text="Change sudoku's matrix" textFill="#696969" />
-      <Pane layoutX="167.0" layoutY="20.0" prefHeight="282.0" prefWidth="327.0" />
+      <Button fx:id="btnChangeMatrix" layoutX="253.0" layoutY="383.0" mnemonicParsing="false" text="Change sudoku's matrix" textFill="#696969" />
+      <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" layoutX="181.0" layoutY="26.0" opacity="0.72" prefHeight="300.0" prefWidth="300.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="3" GridPane.columnIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="7" GridPane.columnIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="6" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="9" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="5" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="9" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="6" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="8" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="6" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="3" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="4" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="8" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="3" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="7" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="2" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="6" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="6" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="2" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="8" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="4" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="9" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="5" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="8" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="7" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="34.0" text="9" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
