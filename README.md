@@ -8,7 +8,7 @@ O programa consiste em um solucionador de Sudoku, onde de maneira simples, o sis
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](/screenshots/01.png)
 
 
 ## Desenvolvimento
