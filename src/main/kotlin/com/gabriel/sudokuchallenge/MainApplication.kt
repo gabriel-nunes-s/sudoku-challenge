@@ -8,8 +8,7 @@ import javafx.stage.Stage
 
 class HelloApplication : Application() {
     override fun start(stage: Stage) {
-        var sudokuViewController = SudokuViewController()
-
+        val sudokuViewController = SudokuViewController()
         val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("view/sudoku-view.fxml"))
         fxmlLoader.setController(sudokuViewController)
         val scene = Scene(fxmlLoader.load())
