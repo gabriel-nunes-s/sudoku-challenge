@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.sudokuchallenge.controller.MainViewController">
    <children>
       <Button fx:id="btnSolve" layoutX="263.0" layoutY="343.0" mnemonicParsing="false" onAction="#onBtnSolveClick" text="Solve Sudoku Puzzle!">
          <padding>
             <Insets bottom="6.0" left="4.0" right="4.0" top="6.0" />
          </padding>
       </Button>
-      <Button fx:id="btnChangeMatrix" layoutX="253.0" layoutY="383.0" mnemonicParsing="false" text="Change sudoku's matrix" textFill="#696969" />
+      <Button fx:id="btnChangeMatrix" layoutX="253.0" layoutY="383.0" mnemonicParsing="false" onAction="#onBtnChangeMatrixClick" text="Change sudoku's matrix" textFill="#2b2b2b" />
       <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" layoutX="181.0" layoutY="26.0" opacity="0.72" prefHeight="300.0" prefWidth="300.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
