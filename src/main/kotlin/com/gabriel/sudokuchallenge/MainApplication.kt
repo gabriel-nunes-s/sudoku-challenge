@@ -16,7 +16,6 @@ class MainApplication : Application() {
     override fun start(stage: Stage) {
         staticStage = stage
         val loader = FXMLLoader(MainApplication::class.java.getResource("view/main-view.fxml"))
-        loader.setController(MainViewController())
         val scene = Scene(loader.load())
         stage.title = "Sudoku Solver!"
         stage.scene = scene
