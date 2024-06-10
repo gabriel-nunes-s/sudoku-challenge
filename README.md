@@ -8,8 +8,7 @@ O programa consiste em um solucionador de Sudoku, onde de maneira simples, o sis
 
 ## Screenshots
 
-![App Screenshot](/screenshots/01.png)
-
+<img src="screenshots/01.png" alt="Screenshot" style="width:400px;"/>
 
 ## Desenvolvimento
 ### Escolha de tecnologias
@@ -31,11 +30,11 @@ A linguagem Kotlin possui uma sintaxe muito simples e compreensível, dessa form
 
 ## Como executar:
 
-**Obs.** -> Necessita JDK/JRE 21 ou superior
+**Obs.** -> Necessita JavaFX JDK 21 ou superior
 
 Com o comando abaixo, execute o pacote **.jar** disponibilizado:
 
 ```bash
   java -jar SudokuChallenge.jar
 ```
-    
+Ou abra em um IDE IntellijIdea/Netbeans/Eclipse
