@@ -125,7 +125,7 @@
          </children>
       </GridPane>
       <Label fx:id="lblMessage" layoutX="533.0" layoutY="108.0" prefHeight="15.0" prefWidth="66.0" />
-      <Label layoutX="33.0" layoutY="106.0" prefHeight="34.0" prefWidth="121.0" text="1. Insert the matrix you want to fill with" wrapText="true" />
+      <Label layoutX="33.0" layoutY="106.0" prefHeight="34.0" prefWidth="121.0" text="1. Enter the matrix you want to fill" wrapText="true" />
       <Label layoutX="33.0" layoutY="148.0" prefHeight="64.0" prefWidth="122.0" text="2. Click on &quot;Solve Puzzle!&quot; and let the program complete it for you!" wrapText="true" />
    </children>
 </AnchorPane>

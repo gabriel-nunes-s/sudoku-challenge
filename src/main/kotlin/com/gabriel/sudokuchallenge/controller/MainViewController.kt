@@ -38,19 +38,32 @@ class MainViewController() : Initializable {
         // Inicializa a classe Solver e passa a matriz crua a ser resolvida
         getGridPaneValues()
         val solver = Solver()
-        if (solver.solve(sudokuGrid)) {
-            sudokuGrid = solver.solvedGrid
+        val solvedSudoku : Array<IntArray>
+        try {
+            solvedSudoku = solver.solve(sudokuGrid)
             setSolvedGrid()
             lblMessage.text = "Solved!"
             btnSolve.isDisable = true
-        } else {
-            // A matriz não é válida, logo exibe uma mensagem de erro
+        } catch (e: Exception) {
             val alert = Alert(Alert.AlertType.ERROR)
             alert.title = "Error!"
             alert.headerText = null
-            alert.contentText = "The current matrix is not valid!"
+            alert.contentText = e.message.toString()
             alert.show()
         }
+//        if (solver.solve(sudokuGrid)) {
+//            sudokuGrid = solver.solvedGrid
+//            setSolvedGrid()
+//            lblMessage.text = "Solved!"
+//            btnSolve.isDisable = true
+//        } else {
+//            // A matriz não é válida, logo exibe uma mensagem de erro
+//            val alert = Alert(Alert.AlertType.ERROR)
+//            alert.title = "Error!"
+//            alert.headerText = null
+//            alert.contentText = "The current matrix is not valid!"
+//            alert.show()
+//        }
     }
 
     @FXML
