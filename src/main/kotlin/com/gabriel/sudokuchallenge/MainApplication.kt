@@ -1,23 +1,29 @@
 package com.gabriel.sudokuchallenge
 
-import com.gabriel.sudokuchallenge.controller.SudokuViewController
+import com.gabriel.sudokuchallenge.controller.MainViewController
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
+import javafx.scene.layout.GridPane
 import javafx.stage.Stage
 
-class HelloApplication : Application() {
+class MainApplication : Application() {
+
+    companion object {
+        lateinit var staticStage: Stage
+    }
+
     override fun start(stage: Stage) {
-        val sudokuViewController = SudokuViewController()
-        val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("view/sudoku-view.fxml"))
-        fxmlLoader.setController(sudokuViewController)
-        val scene = Scene(fxmlLoader.load())
+        staticStage = stage
+        val loader = FXMLLoader(MainApplication::class.java.getResource("view/main-view.fxml"))
+        val scene = Scene(loader.load())
         stage.title = "Sudoku Solver!"
         stage.scene = scene
+        stage.centerOnScreen()
         stage.show()
     }
 }
 
 fun main() {
-    Application.launch(HelloApplication::class.java)
+    Application.launch(MainApplication::class.java)
 }

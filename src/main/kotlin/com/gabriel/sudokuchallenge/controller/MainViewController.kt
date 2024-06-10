@@ -2,56 +2,47 @@ package com.gabriel.sudokuchallenge.controller
 
 import com.gabriel.sudokuchallenge.model.Solver
 import javafx.fxml.FXML
+import javafx.fxml.Initializable
 import javafx.scene.control.Alert
 import javafx.scene.control.Button
 import javafx.scene.control.Label
+import javafx.scene.control.TextField
 import javafx.scene.layout.GridPane
+import java.net.URL
+import java.util.*
 
-class SudokuViewController {
+class MainViewController() : Initializable {
+
+    private var sudokuGrid: Array<IntArray> = Array(9) { IntArray(9) }
 
     // Atributos FXML para interação com a tela
     @FXML
-    private lateinit var gridPane: GridPane
+    lateinit var gridPane: GridPane
 
     @FXML
     private lateinit var btnSolve: Button
 
     @FXML
-    private lateinit var btnChangeMatrix: Button
+    private lateinit var btnClear: Button
 
     @FXML
     private lateinit var lblMessage: Label
 
-    private var sudokuGrid: Array<IntArray> = Array(9) { IntArray(9) }
-
     // Função executada após a instância do controlador
-    @Override
-    fun initialize() {
-        // Cria uma lista com todos os filhos do gridPane
-        val children = gridPane.children
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
 
-        // Loop que assimila os valores da lista ao array
-        for (node in children) {
-            // Registra as coordenadas do node em questão
-            val row = GridPane.getRowIndex(node) ?: 0
-            val col = GridPane.getColumnIndex(node) ?: 0
-
-            // É assimilado 0 à posição se o Label esteja vazio, caso contrário, o número é assimilado
-            if (node is Label) {
-                val text = node.text
-                sudokuGrid[row][col] = if (text.isEmpty()) 0 else text.toInt()
-            }
-        }
     }
 
     @FXML
     fun onBtnSolveClick() {
         // Inicializa a classe Solver e passa a matriz crua a ser resolvida
+        getGridPaneValues()
         val solver = Solver()
         if (solver.solve(sudokuGrid)) {
             sudokuGrid = solver.solvedGrid
             setSolvedGrid()
             lblMessage.text = "Solved!"
+            btnSolve.isDisable = true
         } else {
             // A matriz não é válida, logo exibe uma mensagem de erro
             val alert = Alert(Alert.AlertType.ERROR)
@@ -63,8 +54,13 @@ class SudokuViewController {
     }
 
     @FXML
-    fun onBtnChangeMatrixClick() {
-        TODO("not implemented yet")
+    fun onBtnClearClick() {
+        for (node in gridPane.children) {
+            if (node is TextField) {
+                node.text = ""
+            }
+        }
+        btnSolve.isDisable = false
     }
 
     // Loop para preencher o gridPane com os valores do array
@@ -75,8 +71,26 @@ class SudokuViewController {
             val row = GridPane.getRowIndex(node) ?: 0
             val col = GridPane.getColumnIndex(node) ?: 0
 
-            if (node is Label) {
+            if (node is TextField) {
                 node.text = sudokuGrid[row][col].toString()
+            }
+        }
+    }
+
+    private fun getGridPaneValues() {
+        // Cria uma lista com todos os filhos do gridPane
+        val children = gridPane.children
+
+        // Loop que assimila os valores da lista ao array
+        for (node in children) {
+            // Registra as coordenadas do node em questão
+            val row = GridPane.getRowIndex(node) ?: 0
+            val col = GridPane.getColumnIndex(node) ?: 0
+
+            // É assimilado 0 à posição se o Label estiver vazio, caso contrário, o número é assimilado
+            if (node is TextField) {
+                val text = node.text
+                sudokuGrid[row][col] = if (text.isEmpty()) 0 else text.toInt()
             }
         }
     }

@@ -59,3 +59,11 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.gabriel.sudokuchallenge.MainApplicationKt'
+        )
+    }
+}
